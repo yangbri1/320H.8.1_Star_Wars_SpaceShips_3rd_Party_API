@@ -46,6 +46,7 @@ export default function GetAllStarships(){
         ships_db.forEach((ship) => {
             // search for ship's name & append to fleet
             fleet.push(ship.name);
+            // fleet.push(ship.name.slice(0, -1));
         });
 
         return(fleet);
@@ -58,13 +59,13 @@ export default function GetAllStarships(){
 
     // non-React loaded function
     const loaded = () => {
-        let single_vessel = spaceship();
+        let single_vessel = spaceship()[0];
         return(
             <>
                 {/* https://bobbyhadz.com/blog/react-objects-are-not-valid-as-react-child#:~:text=The%20React.js%20error%20%22Objects%20are%20not%20valid%20as,properties%20on%20the%20object%20in%20your%20JSX%20code. */}
                 {/* technically JSON.stringify() method converts obj to String b4 being render fixes error... */}
                 {/* {JSON.stringify(ships.results)}; */}
-                {spaceship()[0]};
+                {spaceship()};
             </>
         )
     }
